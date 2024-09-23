@@ -26,6 +26,17 @@ public class PlayerController {
         this.playerService = playerService;
     }
 
+    //endpoint to search players by name
+    @GetMapping("/search")
+    public List<Player> searchPlayers(@RequestParam String name) {
+        return playerService.searchPlayersByName(name);
+    }
+
+    @GetMapping("api/v1/player")
+    public ResponseEntity<String> testCors() {
+        return ResponseEntity.ok("CORS enabled");
+    }
+
     @GetMapping
     public List<Player> getPlayers(
         @RequestParam(value = "team_name", required = false) String team,

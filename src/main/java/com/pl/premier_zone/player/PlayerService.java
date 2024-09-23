@@ -36,6 +36,10 @@ public class PlayerService {
     public List<Player> getPlayersByName(String searchText) {
         return playerRepository.findPlayersByName(searchText);
     }
+
+    public List<Player> searchPlayersByName(String searchText) {
+        return playerRepository.findByNameContainingIgnoreCase(searchText);
+    }
     
     public List<Player> getPlayersByPos(String searchText) {
         return playerRepository.findByPosition(searchText);
